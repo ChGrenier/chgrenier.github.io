@@ -5,7 +5,8 @@ Petit site mis en place grâce à GitHub Page
 ### ressources utilisées
 
 https://pages.github.com/  <br>
-https://html5up.net/
+https://html5up.net/ <br>
+https://www.lokeshdhakar.com/projects/lightbox2/
 
 
 ### Notes Git
