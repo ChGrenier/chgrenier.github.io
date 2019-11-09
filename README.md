@@ -4,7 +4,7 @@ Petit site mis en place grâce à GitHub Page
 
 ### ressources utilisées
 
-https://pages.github.com/
+https://pages.github.com/  <br>
 https://html5up.net/
 
 
