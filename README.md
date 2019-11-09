@@ -10,18 +10,18 @@ https://html5up.net/
 
 ### Notes Git
 
-git clone ...
+* git clone ...
 
-git add <fichers>
-	-u pour les fichiers déjà suivis
-	. pour tout mettre
-git commit -m "..."
-git push
+* git add <fichers> <br>
+	+ add -u pour les fichiers déjà suivis
+	+ add . pour tout mettre
+* git commit -m "..."
+* git push
 
-git status
+* git status
 
-git reset HEAD~
-find -name '*.mp4' -exec git add {} \;
+* git reset HEAD~
+* find -name '*.mp4' -exec git add {} \;
 
 
 ### Support or Contact
