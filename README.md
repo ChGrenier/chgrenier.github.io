@@ -1,36 +1,28 @@
-## Welcome to GitHub Pages
+## Petit site perso
 
-You can use the [editor on GitHub](https://github.com/ChGrenier/chgrenier.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Petit site mis en place grâce à GitHub Page
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### ressources utilisées
 
-### Markdown
+https://pages.github.com/
+https://html5up.net/
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Notes Git
 
-# Header 1
-## Header 2
-### Header 3
+git clone ...
 
-- Bulleted
-- List
+git add <fichers>
+	-u pour les fichiers déjà suivis
+	. pour tout mettre
+git commit -m "..."
+git push
 
-1. Numbered
-2. List
+git status
 
-**Bold** and _Italic_ and `Code` text
+git reset HEAD~
+find -name '*.mp4' -exec git add {} \;
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ChGrenier/chgrenier.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
