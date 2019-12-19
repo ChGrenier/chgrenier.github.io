@@ -4,7 +4,8 @@ from os.path import join, getsize
 nom_dossier = 'billund'
 sortie = open('sortie.html', 'w')
 
-for root, dirs, files in os.walk('../voyages/images/'+nom_dossier, topdown=True):
+# for root, dirs, files in os.walk('../voyages/images/'+nom_dossier, topdown=True):
+for root, dirs, files in os.walk('../events/images/'+nom_dossier, topdown=True):
     files.sort()
     # print(files[:5])
     for fichier in files :
