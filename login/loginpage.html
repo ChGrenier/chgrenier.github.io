@@ -19,12 +19,23 @@
 
 
         <SCRIPT LANGUAGE="Javascript">
-            function identifiaction(form1)
+            function identifiaction()
             {
                 // document.write("coucou");
                 var id = document.getElementById("identifiant").value;
                 var mdp = document.getElementById("motdepasse").value;
-                // alert(mdp);
+                var page = './pagesidentifiee/'+id+mdp+'.html';
+                // alert(page);
+
+                // let newButton = document.createElement("button");
+                // newButton.href = "test.html";
+                // newButton.textContent = "aller au tirage";
+                // let div1 = document.getElementById("tirage");
+                // div1.insertAdjacentElement('beforeend', newButton);
+
+                // let newTexe = document.createTextNode('test de texte');
+                // div1.prepend(newTexe);
+                document.location.href=page;
             }
         </SCRIPT>
 
@@ -67,26 +78,29 @@
                             </header>
 
                             <p>
-                                tirage au sort pour noël 2020. <br/>
-                                identifiez-vous <br/>
+                                <p align="center">
+                                    <a class="logo"><img src="./images/frisenoel2.png" alt="" width=40%/></a>
+                                </p>
 
+                                <!-- tirage au sort pour noël 2020. <br/>
+                                identifiez-vous <br/> -->
 
-
-                                <!-- <FORM>
-                                <TEXTAREA name="nom" rows=1 cols=24>Texte</TEXTAREA>
-                                </FORM> -->
                                 
 
-                                <form  name="id_et_mdp"  method="post" onclick="identifiaction('id_et_mdp')">
+                                <form  name="id_et_mdp">
                                     <label for="identifiant">identifiant : </label>
                                     <input type="text" id="identifiant"/>
                                     <label for="motdepasse">mot de passe : </label>
                                     <input type="password" id="motdepasse"/>
-                                    <input type="submit" value="s'identifier"/>
+                                    <input type="button" value="s'identifier" onclick="identifiaction()"/>
                                 </form>
-    
+                                
+                                <p align="center">
+                                    <a class="logo"><img src="./images/frisenoel.png" alt=""/></a>
+                                </p>
                             </p>
-                            <hr>
+                            <!-- <input name="bouton_terminer" type="button" value="Terminer" onclick="document.location.href='./test.html'"> -->
+                            <!-- <hr> -->
                     </article>
 
                     <!-- <a href="../images/placeholder.jpg" class="image">
@@ -96,9 +110,9 @@
                         <a href="../images/placeholder.jpg" data-lightbox="roadtrip"><img src="../images/placeholder.jpg" alt="" height="auto" width="300" title="bonjour" /></a> -->
                         
                         <!-- Haut de page -->
-                        <ul class="actions">
+                        <!-- <ul class="actions">
                             <li><a href="./galleries/article.html" class="button">Voir les photos</a></li>
-                        </ul>
+                        </ul> -->
                 </div>
 
 
@@ -110,7 +124,7 @@
 							<section id="intro">
                                 <a href="../index.html" class="logo"><img src="../images/logo.gif" alt="" /></a>
 								<header>
-									<h2>Tirage de noël</h2>
+									<h2>Tirage au sort</h2>
 								</header>
 							</section>
 
