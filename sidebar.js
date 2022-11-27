@@ -15,11 +15,16 @@ document.write('\
                                         <span class="opener">Publications</span>\
                                         <ul>\
                                             <li><a href="articles.html">Articles</a></li>\
-                                            <li><a href="#">Presentations</a></li>\
+                                            <li><a href="presentations.html">Presentations</a></li>\
                                         </ul>\
                                     </li>\
-                                    <li><a href="archive_generic.html">Generic</a></li>\
-                                    <li><a href="archive_elements.html">Elements</a></li>\
+                                    <li>\
+                                        <span class="opener">Shaders</span>\
+                                        <ul>\
+                                            <li><a href="shaders_research.html">Research</a></li>\
+                                            <li><a href="shaders_perso.html">Personal</a></li>\
+                                        </ul>\
+                                    </li>\
                                 </ul>\
                             </nav>\
 \
