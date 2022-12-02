@@ -21,11 +21,33 @@ uniform float iTime;
 // MAIN PROGRAM
 void main()
 {
-    vec2 uv = texCoord;
+    // Normalized pixel coordinates (from 0 to 1)
+    vec2 uv = -1. + 2. * texCoord;
+    
+    vec2 z = uv * 1.5;
+    vec2 c;// = vec2(-0.745, 0.19);
+    float an = 0.1 * iTime + 10.;
+    c.x = .5*cos(an) - .25*cos(2.*an);
+    c.y = .5*sin(an) - .25*sin(2.*an);
+    c *= 1.05;
+    
+    float t = 0.;
+    
+    for (int i=0; i<64; i++){
+        vec2 nz = vec2(z.x*z.x - z.y*z.y, 2. * z.x*z.y) + c; 
+        float m2 = dot(nz, nz);
+        if(m2>4.) break;
+        z = nz;
+        t += 1./63.;
+    }
 
-    // sortie
-    oFragmentColor = vec4(0., uv.x*(0.5*cos(iTime)+0.5), uv.y*(0.5*sin(iTime)+0.5), 1.);
-	
+    // Time varying pixel color
+    vec3 col = vec3((0.5 * sin(1.2 * iTime + 2.4) + .5) * t, 
+                    (0.5 * sin(iTime) + .5) * t, 
+                     t);
+
+    // Output to screen
+    oFragmentColor = vec4(col,1.0);
 }
 `;
 
@@ -77,6 +99,14 @@ var object = null;
 function init_wgl()
 {
     ewgl.continuous_update = true;
+
+    UserInterface.begin("Interface", true, true);
+    
+    // UserInterface.use_field_set( 'H', "paramètres affichage" );
+    // amplitude = UserInterface.add_slider( 'amplitude', 1, 24, 12, update_wgl );
+    // UserInterface.end_use();
+    
+    UserInterface.end();
     
     // Create and initialize a shader program
     shaderProgram = ShaderProgram( vertexShader, fragmentShader, 'basic shader' );
