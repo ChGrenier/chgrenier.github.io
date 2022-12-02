@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>MT180</title>
+
+		<link rel="stylesheet" href="../revealjs/dist/reset.css">
+		<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="../revealjs/dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section style="text-align: left;" data-background="image_mt180.png">
+					<div style="position: relative; left: -224px; bottom: -660px; color: rgb(0, 0, 0); font-size: 20px;">
+						<p>scène par L Etranger, https://www.turbosquid.com/fr/Search/Artists/L-Etranger</p>
+					</div>
+					
+					<aside class="notes">
+						Bonjour à toutes et à tous,
+
+						film, jeux vidéo ... je vous propose d'entrer avec moi dans ces mondes virtuels qui font aujourd'hui partie de notre quotidien et plus particulièrement d’explorer leur création. 
+						À la création d’un monde virtuel, on commence par y placer des objets. Par exemple, ici, du pain, un pot de confiture… 
+						Mais ces objets, à l’origine, sont tous d’un même gris parfaitement uniforme comme si ils étaient tous faits de la même matière. Ce petit déjeuner est bien triste et personnellement, je ne le mangerais pas. 
+						On va alors ajouter de la texture aux objets présents dans la scène. De cette façon, tout devient plus “réel” et beaucoup plus appétissant. Dans un monde virtuel, les textures sont des images qui imite l’apparence des objets du monde réel et qui permettent de donner vie à ce monde virtuel. 
+						L’ennui, c'est que ces textures, il faut les dessiner. Et autant je peux demander à un artiste de décorer la boîte à pain, mais je ne peux pas lui demander de peindre une par une, une infinité de miettes de pain. Heureusement pour nous, un ordinateur, lui, en est capable. 120
+
+						Évidemment, on ne peut pas juste donner un pinceau à un pc et lui dire “bon… au boulot maintenant”. Pour que l’ordinateur puisse créer des textures, il lui faut une procédure qu’il va pouvoir suivre. Le travail de ma thèse consiste à imaginer et à programmer les procédures pour qu’un ordinateur dessine ces textures que les artistes ne peuvent pas faire à la main. 100
+
+						Pour cela j’utilise un outil que l’on appelle un bruit procédural. Il s’agit d’une fonction mathématique qui agit comme un dé que je peux truquer et partiellement contrôler. En modifiant plusieurs paramètres, je peux choisir la moyenne et la dispersion des résultats de mon dé. Je peux aussi choisir si certains motifs spécifiques doivent apparaître dans ces résultats. Grâce à ce dé, l’ordinateur pourra tirer des nombres aléatoires. 75
+						Ensuite, je vais définir une palette de couleur que l’ordinateur va pouvoir utiliser. Par exemple des nuances de brun et de beige si je veux créer la texture du pain. Pour chaque petit morceau de texture, l’ordinateur va lancer le dé et  choisir une couleur dans la palette en fonction du résultat obtenu. De cette façon, il va peu à peu créer la texture pour des miettes de pain toutes similaires par leur couleurs mais aussi toutes différentes, grâce à l’aléatoire apporté par le dé. 50
+
+						Une autre difficulté arrive lorsque l’on observe les textures de loin. En effet, si on regarde le pain de très près on peut voir chaque nuance de couleur, mais si on le vois de très loin on ne pourra pas voir tous les détails. Or, pour que la texture puisse être utilisée dans un jeu vidéo, on ne peut pas se permettre de calculer chaque détail pour ne pas les voir, le calcul doit être le plus rapide possible. 30
+						Je travaille donc sur une procédure pour que mon ordinateur puisse utiliser le dé et la palette de couleur le plus efficacement possible quelque soit la distance à laquelle la texture est vue.
+
+						Grâce à cela, il m’est possible de rendre ce petit déjeuner virtuel aussi appétissant de près que de loin.
+					</aside>
+
+					<!-- <pre><code class="hljs html">&lt;section data-background="image.png"&gt;</code></pre> -->
+				</section>
+			</div>
+		</div>
+
+		<script src="../revealjs/dist/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
