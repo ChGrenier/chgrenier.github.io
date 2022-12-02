@@ -11,20 +11,9 @@ document.write('\
                                 <ul>\
                                     <li><a href="index.html">Homepage</a></li>\
                                     <li><a href="resume.html">Resume</a></li>\
-                                    <li>\
-                                        <span class="opener">Publications</span>\
-                                        <ul>\
-                                            <li><a href="articles.html">Articles</a></li>\
-                                            <li><a href="presentations.html">Presentations</a></li>\
-                                        </ul>\
-                                    </li>\
-                                    <li>\
-                                        <span class="opener">Shaders</span>\
-                                        <ul>\
-                                            <li><a href="shaders_research.html">Research</a></li>\
-                                            <li><a href="shaders_perso.html">Personal</a></li>\
-                                        </ul>\
-                                    </li>\
+                                    <li><a href="articles.html">Articles</a></li>\
+                                    <li><a href="shaders_list.html">Shaders</a></li>\
+                                    <li><a href="presentations.html">Presentations</a></li>\
                                 </ul>\
                             </nav>\
 \
@@ -41,7 +30,10 @@ document.write('\
 \
                         <!-- Footer -->\
                             <footer id="footer">\
-                                <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>\
+                                <p class="copyright">&copy; ChGrenier. All rights reserved. \
+                                Design: <a href="https://html5up.net">HTML5 UP</a>, \
+                                WebGL API: <a href="https://git.unistra.fr/thery/easywebgl">Sylvain Thery</a>, \
+                                Reveal framworks: <a href="https://revealjs.com/">reveal.js</a>.</p>\
                             </footer>\
 \
                     </div>\
