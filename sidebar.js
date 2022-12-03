@@ -10,10 +10,10 @@ document.write('\
                                 </header>\
                                 <ul>\
                                     <li><a href="index.html">Homepage</a></li>\
-                                    <li><a href="resume.html">Resume</a></li>\
+                                    <li><a href="resume.html">Resume/CV</a></li>\
                                     <li><a href="articles.html">Articles</a></li>\
                                     <li><a href="shaders_list.html">Shaders</a></li>\
-                                    <li><a href="presentations.html">Presentations</a></li>\
+                                    <li><a href="presentations.html">Slides</a></li>\
                                 </ul>\
                             </nav>\
 \
