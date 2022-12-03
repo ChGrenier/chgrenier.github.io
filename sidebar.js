@@ -24,16 +24,16 @@ document.write('\
                                 </header>\
                                 <ul class="contact">\
                                     <li class="icon solid fa-envelope"><a href="#">charline.grenier@unistra.fr</a></li>\
-                                    <li class="icon brands fa-github"><a href="#">ChGrenier</a></li>\
+                                    <li class="icon brands fa-linkedin"><a href="linkedin.com/in/charline-grenier-694a31103">Charline Grenier</a></li>\
                                 </ul>\
                             </section>\
 \
                         <!-- Footer -->\
                             <footer id="footer">\
-                                <p class="copyright">&copy; ChGrenier. All rights reserved. \
-                                Design: <a href="https://html5up.net">HTML5 UP</a>, \
-                                WebGL API: <a href="https://git.unistra.fr/thery/easywebgl">Sylvain Thery</a>, \
-                                Reveal framworks: <a href="https://revealjs.com/">reveal.js</a>.</p>\
+                                <p class="copyright">&copy; ChGrenier. All rights reserved.<br> \
+                                Design: <a href="https://html5up.net">HTML5 UP</a>,<br> \
+                                easyWebGL API: <a href="https://git.unistra.fr/thery/easywebgl">Sylvain Thery</a>,<br> \
+                                JS framworks for slides: <a href="https://revealjs.com/">reveal.js</a>.</p>\
                             </footer>\
 \
                     </div>\

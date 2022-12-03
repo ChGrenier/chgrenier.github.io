@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../revealjs/dist/reset.css">
+		<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="../revealjs/dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section style="text-align: left;" data-background="slide_1.png">
+					<aside class="notes">
+						Good morning
+						I am Charline Grenier,
+						I will present you our work about textures synthesis, tilted color-mapped noise vector fields for generating procedural micro-patterns.
+						It was made at Strasbourg university in France with Basile Sauvage, Jean-Michel Dischler and Sylvain Thery
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_2.png">
+					<aside class="notes">
+						So I will present our texture generation method to obtain structured procedural patterns in real time.
+						The advantage of procedural generation is to compute textures in parallel on GPU, in real-time and without storing it.
+
+						Our objective is to proposed a procedure to synthesize patterns with strong colors variations and sharp features.
+						This method also need to be generic to synthesize several different patterns.
+						Finally, we need a real-time filtering. This means that we want to be able to evaluate the texture at any scale in constant time.
+
+						You can see on the left some examples of our results.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_3.png">
+					<aside class="notes">
+						Procedural synthesis is used since long so we can find several algorithm in the related work.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_4.png">
+					<aside class="notes">
+						Here, gaussian textures allow to obtain a large variety of patterns.
+						Several synthesis algorithm exist for gaussian textures.
+						For example the sparse Gabor convolution presented in 2009 by Lagae et al., 
+						Or the tiling and blending presented by Heitz et al. In 2018
+
+						Those methods allow to generate procedurally a large variety of patterns and have real-time filtering method, but they can’t produce structured patterns.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_5.png">
+					<aside class="notes">
+						Some synthesis method allow to generate patterns with strong structure.
+						Here, for example, the procedural Phasor noise, presented by Tricard et al in 2019. It generates waves with a controllable profile.
+
+						However, it generate a limited range of patterns, and it can’t be filtered in real-time.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_6.png">
+					<aside class="notes">
+						Another way to synthesize structured patterns is to compose a Gaussian noise with a color-map.
+						There, the structure is due to the discontinuities in the color-map.
+						Heitz et al. Presented a filtering method for this kind of pattern in 2014. 
+
+						However, the variety of the final patterns is limited
+						Indeed the possibility of color layout in the color-map is limited
+						As a result, the final pattern can only have concentric colors (for example, in the top right result, yellow and white can’t meet each other). 
+						And non concentric patterns such as the result below are impossible to obtain with this kind of color-maps.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_7.png">
+					<aside class="notes">
+						I will now present our method to synthesize procedurally a large variety of patterns with a strong structure, and with a real-time filtering method
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_8.png">
+					<aside class="notes">
+						So this is our noise model.
+						It is inspired by the 1D color-maps, but, to have more freedom in the colors layout, we introduce a second dimension to the color-map.
+						This result in a bi-dimensional color-map. 
+						We use two scalar fields as input, here on the left, and their intensities are used as coordinates in the color-map, in the middle, to obtain the result pattern here on the right.
+
+						Our model is procedural as it is based on noises, the discontinuites in the color-map allows the generation of strong structures and the two dimensions allow a large freedom in the colors layout and so in the final patterns variety
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_9.png">
+					<aside class="notes">
+						For the filtering of our model, we use the method proposed by Heitz et al in 2014.
+						The filtering challenge is that we have a screen pixel with it’s footprint on the texture (represented in red in the picture) and we need to compute the mean color in this footprint.
+
+						The method is based on the fact that the mean color in a footprint can be interpreted as a combination of the values contained in the color-map, weighted by their presence in the footprint. 
+						This probability of presence is described by the histogram.
+						We applied this method to our 2D model.
+						So, to filter the texture (a), we will compute the histogram, in the pixel footprint, of the input gaussian noises in (b).
+						As those noises are gaussian we can approximate their histograms with gaussian functions, meaning we can just compute the mean and the covariance matrix.
+						Finally, we use it in (c) in a pre-filtered version of the color-map. This pre-filtered color-map is obtain by the convolution of the initial color-map with 2D gaussian with different covariance matrix, it allows to pre-compute different level of detail of the color-map.
+
+
+						To achieve the filtering in real-time, our contribution is the estimation of the mean and the covariance matrix of the noises in arbitrary footprint in real-time.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_10.png">
+					<aside class="notes">
+						So, to estimate the mean color in a pixel footprint in real time, we need to estimate the mean mu and the variance sigma of the input noises in real time.
+
+						For the noises generation, we use the synthesis method proposed by Heitz et al. In 2018. 
+						So, the noise is generated using blending of tiles from an example, I will call those tiles E and the blending weights are called w.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_11.png">
+					<aside class="notes">
+						To compute the statistics, we first estimate it in a square footprint, named square P in the top left, for isotropic filtering.
+						And then we approximate non square footprint, such as the red footprint, as an union of square, for anisotropic filtering.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_12.png">
+					<aside class="notes">
+						To compute the mean we pre-compute a MIPmap on the input tiles and then use the synthesis algorithm.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_13.png">
+					<aside class="notes">
+						As the mean is linear, we can compute the mean in arbitrary footprint by doing the average of the mean in square footprints.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_14.png">
+					<aside class="notes">
+						For the covariance matrix the main difficulty is that the variance isn’t linear.
+						For square pixel footprint we can do a MIPmap of the variance of input noises and apply the synthesis algorithm with squared weights 
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_15.png">
+					<aside class="notes">
+						But, for arbitrary footprint such as the red one, we need to work with non centered second order moment to compute the union of the square footprints.
+						Then we can re-center the second order moment using the mean in the footprint, to obtain the variance.
+
+						I invite you to consult our article for more details
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_16.png">
+					<aside class="notes">
+						In terms of performance, our real-time implementation need 7 mega-byte of memory for storing the pre-filtered color-map using three 8-byt color channels images
+						The rendering do 7 fetches per pixel.
+						And for the rendenring of one quad in full high definition we need 0.2ms per frame on  Nvidia RTX2080 and 0.6ms on Radeon M5500.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_17.png">
+					<aside class="notes">
+						I will now show you some results
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_18.png">
+					<aside class="notes">
+						Our model allows us to generate a large variety of structured patterns.
+
+						In each result images here, you have on the left the color-map on the top and the to input noises below and on the right the result texture.
+						In (a) you can see non concentric patterns.
+						In (b) it is also possible to reproduce concentric patterns
+						Depending on the color-map used.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_19.png">
+					<aside class="notes">
+						We can also control the shape of the patterns though the noises characteristics.
+						Here, in (b) the oriented input noises allow to obtain crossing elongated patterns.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_20.png">
+					<aside class="notes">
+						Finally, you can see here that more complex color-map allows to generate much more complex patterns, for example here, with a pattern which evoke marble
+
+						So our model allows us to generate patterns with the wanted propriety, 
+						the real-time estimation of the mean and the covariance matrix allows to do the filtering in real-time, 
+						And the interaction between noises and the color-map allow to obtain a large variety of structured patterns.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_21.png">
+					<aside class="notes">
+						Our model is also able to reproduce the Phasor noise.
+						It is a spacial case of our model so it come as a bonus that we can filter Phasor noise in real-time.
+						But it is an interesting result because the phasor noise was limited until now for real time usage
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_22.png">
+					<aside class="notes">
+						Our estimation of mean and covariance matrix is also useful for the real-time filtering of normal maps.
+						the challenge for normal maps, is that it is necessary to know mean and variance of the normals in the pixel footprint.
+
+						A normal maps filtering method called LEAN mapping were proposed in 2010 by Olano et al.
+						It is very efficient and precise for pre-computed and stored normal maps.
+						However, in the context of procedural synthesis the previous real-time estimation of covariance matrix was constant by level of detail, on the left image.
+
+						We applied our estimation algorithm using the LEAN mapping method and it allow us to obtain a result closer to the reference, with spatial variation, as seen on the right.
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_23.png">
+					<aside class="notes">
+						Our model can easily be implemented using professional texture synthesis software.
+						For example, Adobe substance designer is based on the representation of textures by a graph and we were able to add our model as a graph node and to combine it with other nodes to produce the result on the right
+
+						It is possible to create quite complex texture with more than one color-maps. 
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_24.png">
+					<aside class="notes">
+						To conclude, we presented a model that allows to procedurally synthesize a large variety of structured patterns, and a method to do the real-time filtering of the result using real-time estimation of mean and covariance matrix of noises.
+
+						Our work still have some limitation.
+						The main one is the difficulty to draw the color-maps, a “by-example” method to design it would be very useful.
+						Furthermore, our covariance matrix estimation is based on one precise noise algorithm, namely tiling and blending, it might be possible to extend it to other algorithms.
+						Finally, the combination of several nodes could lead to more complex patterns, 
+						but the filtering can’t be done in real time in this case. 
+					</aside>
+				</section>
+
+				<section style="text-align: left;" data-background="slide_25.png">
+					<aside class="notes">
+						I thanks you for your attention, 
+						I invite you to see the project web page with the webGL demo to see more result
+						and I will be happy to answer your questions
+					</aside>
+				</section>
+			</div>
+		</div>
+
+		<script src="../revealjs/dist/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
