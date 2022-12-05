@@ -49,7 +49,7 @@ aj@lkn.io | @ajlkn
 Credits:
 
 	Icons:
-		Font Awesome (fontawesome.io)
+		Font Awesome (fontawesome.io, https://www.angularjswiki.com/fr/fontawesome/)
 
 	Other:
 		jQuery (jquery.com)

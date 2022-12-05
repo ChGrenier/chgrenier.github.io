@@ -22,29 +22,10 @@ uniform float iTime;
 void main()
 {
     // Normalized pixel coordinates (from 0 to 1)
-    vec2 uv = -1. + 2. * texCoord;
-    
-    vec2 z = uv * 1.5;
-    vec2 c;// = vec2(-0.745, 0.19);
-    float an = 0.1 * iTime + 10.;
-    c.x = .5*cos(an) - .25*cos(2.*an);
-    c.y = .5*sin(an) - .25*sin(2.*an);
-    c *= 1.05;
-    
-    float t = 0.;
-    
-    for (int i=0; i<64; i++){
-        vec2 nz = vec2(z.x*z.x - z.y*z.y, 2. * z.x*z.y) + c; 
-        float m2 = dot(nz, nz);
-        if(m2>4.) break;
-        z = nz;
-        t += 1./63.;
-    }
+    vec2 uv = texCoord;
 
     // Time varying pixel color
-    vec3 col = vec3((0.5 * sin(1.2 * iTime + 2.4) + .5) * t, 
-                    (0.5 * sin(iTime) + .5) * t, 
-                     t);
+    vec3 col = 0.5 + 0.5*cos(iTime+uv.xyx+vec3(0,2,4));
 
     // Output to screen
     oFragmentColor = vec4(col,1.0);
