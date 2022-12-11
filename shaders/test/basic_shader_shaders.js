@@ -81,7 +81,7 @@ function init_wgl()
 {
     ewgl.continuous_update = true;
 
-    UserInterface.begin("Interface", true, true);
+    UserInterface.begin(false, true);
     
     // UserInterface.use_field_set( 'H', "paramètres affichage" );
     // amplitude = UserInterface.add_slider( 'amplitude', 1, 24, 12, update_wgl );

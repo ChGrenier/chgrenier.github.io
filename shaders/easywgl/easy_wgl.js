@@ -5214,7 +5214,7 @@ const UserInterface =
 	{
 	},
 
-	begin: function(shader_editor=true,show_fps=false)
+	begin: function(shader_editor=false,show_fps=true)
 	{
 		internal_ewgl.interface_on_off = true;
 		internal_ewgl.interf_elt = document.getElementById("Interface");
