@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../revealjs/dist/reset.css">
+		<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="../revealjs/dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section style="text-align: left;" data-background="slide_1.png">
+					<aside class="notes">
+						Thèse réalisée au laboratoire Icube, dans l’équipe IGG, fiancée par l’ANR
+					</aside>
+				</section>
+
+                <section style="text-align: left;" data-background="slide_2.png">
+					<aside class="notes">
+						Les textures permettent d’ajouter des détails visuels dans les mondes virtuels en simulant le comportement lumineux des surfaces.
+                        Le rendu consiste à calculer l’image d’une scène capturée par une caméra virtuelle en simulant les interactions lumineuses
+					</aside>
+				</section>
+
+                <section style="text-align: left;" data-background="slide_3.png">
+					<aside class="notes">
+						Les textures procédurales sont générées par ordinateur au moyens de procédures.
+                        L’avantage de la génération procédurale est qu’elle permet  de calculer la couleur de chaque pixel indépendement en parallèle.
+                        Cela permet de faire les calculs sur la carte graphique et à la volée
+					</aside>
+				</section>
+
+                <section style="text-align: left;" data-background="slide_4.png">
+					<aside class="notes">
+						Au moment du rendu, un pixel de l’écran peu contenir une portion plus ou moins grande de la scène virtuelle
+                        Pour éviter les artefacts visuel (scintillement, moiré), chaque pixel prend la couleur moyenne des textures présentes dans son empreinte. 
+                        Ce calcul de moyenne s’appelle le filtrage. Il est réalisé en faisant l’intégrale des couleur présente dans l’empreinte d’un pixel
+                        Le défi du rendu en temps réel consiste donc à calculer en temps réel l’intégrale sur une surface non plane pour chaque pixel de l’écran (un peu plus de 2milion pour un écran 1920*1080)
+					</aside>
+				</section>
+
+                <section style="text-align: left;" data-background="slide_5.png">
+					<aside class="notes">
+						La génération en temps réel de motifs procéduraux structurés.
+                        C’est à dire des motifs présentant des variations de couleur net
+                        Pour cela on va s’appuyer sur le modèle des graphe de textures.
+                        Ils ont été définit en 1984 par Robert Cook et permettent de définir des textures complexes
+                        Ils sont composés de champs scalaires en entrée et de nœuds fonctions de transfert pour obtenir la sortie.
+					</aside>
+				</section>
+
+                <section style="text-align: left;" data-background="slide_6.png">
+					<aside class="notes">
+						Génération et rendu en temps réel de motifs procéduraux structurés, en utilisant des fonction de transfert à deux dimensions.
+                        Contribution 1 : rouge - Proposition d’un nouveau modèle de nœud représenté par une fonction de transfert bi-dimensionnelle, permettant la génération de nombreux motifs structurés.
+                        Contribution 2 : vert - Implémentation de la méthode de filtrage de Heitz et collègue adaptée au nœud 2D.
+                        Contribution 3 : jaune - Estimation en temps réel des statistiques d’ordre 2 (variance et covariance), nécessaires au filtrage
+					</aside>
+				</section>
+
+                <section style="text-align: left;" data-background="slide_7.png">
+					<aside class="notes">
+						Pour chaque figure on a à gauche les donnée d’entrée (la carte de couleur et les deux champ scalaire) et à droite la texture résultat
+                        a) génération de tâches de différente nuance de vert, non concentrique
+                        b) même brutis d’entrée que (a), carte de couleur différente. motif à couleur concentrique, évoquant de la lave
+                        c) motif de vague profilée colorée, évoquant du sable
+                        d) carte de couleur plus complexe, évoquant du marbre
+
+					</aside>
+				</section>
+
+                <section style="text-align: left;" data-background="slide_8.png">
+					<aside class="notes">
+						Good morning
+						I am Charline Grenier,
+						I will present you our work about textures synthesis, tilted color-mapped noise vector fields for generating procedural micro-patterns.
+						It was made at Strasbourg university in France with Basile Sauvage, Jean-Michel Dischler and Sylvain Thery
+					</aside>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../revealjs/dist/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+				width:1920,
+				height:1080
+			});
+			Reveal.slide(0);
+		</script>
+	</body>
+</html>
