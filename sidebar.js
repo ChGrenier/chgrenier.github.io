@@ -12,7 +12,7 @@ document.write('\
                                     <li><a href="index.html">Homepage</a></li>\
                                     <li><a href="resume.html">Resume/CV</a></li>\
                                     <li><a href="articles.html">Research</a></li>\
-                                    <li><a href="shaders_list.html">Shaders</a></li>\
+                                    <li><a href="shaders_list.html">Codes</a></li>\
                                     <li><a href="presentations.html">Presentations</a></li>\
                                 </ul>\
                             </nav>\
@@ -25,7 +25,7 @@ document.write('\
                                 <ul class="contact">\
                                     <li class="icon solid fa-envelope"><a href="#">charline.grenier@unistra.fr</a></li>\
                                     <li class="icon brands fa-linkedin"><a href="https://linkedin.com/in/charline-grenier-694a31103">Charline Grenier</a></li>\
-                                    <li class="icon brands fa-jedi-order"><a href="https://www.shadertoy.com/user/ChGrenier">Shadertoy</a></li>\
+                                    <!--  <li class="icon brands fa-jedi-order"><a href="https://www.shadertoy.com/user/ChGrenier">Shadertoy</a></li>-->\
                                 </ul>\
                             </section>\
 \
