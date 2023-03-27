@@ -15,13 +15,13 @@ https://www.lokeshdhakar.com/projects/lightbox2/ <br>
 
 ### credits
 
-html template:
-	AJ (aj@lkn.io | @ajlkn)
+- html template:  <br>
+	- AJ (aj@lkn.io | @ajlkn)  <br>
 
-Icons:
-	Font Awesome (fontawesome.io, https://www.angularjswiki.com/fr/fontawesome/)
+- Icons:  <br>
+	- Font Awesome (fontawesome.io, https://www.angularjswiki.com/fr/fontawesome/)  <br>
 
-Other:
-	jQuery (jquery.com)
-	Responsive Tools (github.com/ajlkn/responsive-tools)
-	coi-serviceworker (github.com/gzuidhof/coi-serviceworker)
+- Other:  <br>
+	- jQuery (jquery.com)  <br>
+	- Responsive Tools (github.com/ajlkn/responsive-tools)  <br>
+	- coi-serviceworker (github.com/gzuidhof/coi-serviceworker)  <br>
