@@ -33,7 +33,7 @@ document.write('\
                             <footer id="footer">\
                                 <p class="copyright">&copy; ChGrenier. All rights reserved.<br> \
                                 Design: <a href="https://html5up.net">HTML5 UP</a>,<br> \
-                                easyWebGL API: <a href="https://git.unistra.fr/thery/easywebgl">Sylvain Thery</a>,<br> \
+                                <!--  easyWebGL API: <a href="https://git.unistra.fr/thery/easywebgl">Sylvain Thery</a>,<br> -->\
                                 JS framworks for slides: <a href="https://revealjs.com/">reveal.js</a>.</p>\
                             </footer>\
 \
