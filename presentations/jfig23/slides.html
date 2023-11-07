@@ -32,9 +32,9 @@
                     <img src="images/logo_cnrs.png" height="90"> -->
 
                     <aside class="notes">
-                        Bonjour,
-                        Je suis Charline Grenier, je suis en thèse au laboratoire ICube à Strasbourg.
-                        je vais vous présenter notre travail sur de l'augmentation de terrain par des motif procéduraux contrôlé.
+                        Bonjour, <br>
+                        Je suis Charline Grenier, je suis en thèse au laboratoire ICube à Strasbourg.<br>
+                        je vais vous présenter notre travail sur de l'augmentation de terrain par de motif procéduraux contrôlé.<br>
                         Ce travail est le fruit d'une collaboration entre les laboratoire de strasbourg et de lyon suite à une mobilité inter-labo financée par le GdR IGRV
                     </aside>
                 </section>
@@ -43,15 +43,17 @@
                 <!-- Intro -->
                 <section>
                     <h2>Introduction</h2>
+                    
                     <figure class="r-stretch" Align="center">
-                        <img src="images/flight_simulator.jpeg">
+                        <img src="images/flight_simulator.jpeg" >
                         <figcaption>Figure 1 : Microsoft fligt simulator</figcaption>
                     </figure>
 
                     <aside class="notes">
                         les terrains jouent un rôle important dans le réalisme des monde virtuel.
-                        c'est en particulier visible dans les simulations, les films ou les jeux vidéo.
-                        dans ces terrain, ce sont aussi bien les grand structure que les petit détails qui font le réalisme
+                        c'est en particulier visible dans les simulations, les films ou les jeux vidéo.<br>
+                        dans ces terrain, ce sont aussi bien les grand structure que les petit détails qui font le réalisme<br>
+                        comme ici avec le flight simulator de microsoft
                     </aside>
                 </section>
 
@@ -64,8 +66,8 @@
                     <ol class="menu"></ol> <!--Keep empty-->
 
                     <aside class="notes">
-                        pour cette présenation je vais dans un premeir temps vous faire un bref état de l'art sur l'augmentation de terrain
-                        puis je présenterais notre méthode,
+                        pour cette présenation je vais dans un premier temps vous faire un bref état de l'art des méthodes d'augmentation de terrain<br>
+                        puis je présenterais notre méthode,<br>
                         et des comparaison avec des méthodes existante
                     </aside>
                 </section>
@@ -128,8 +130,8 @@
                         </div>
 
                         <aside class="notes">
-                            une méthode très utilisée est la simulation de phénomène physique, tel que l'érosion hydrolique.
-                            cette famille de méthode permet de résultat très naturel.
+                            une méthode très utilisée est la simulation de phénomène physique, tel que l'érosion hydrolique.<br>
+                            cette famille de méthode permet de résultat très naturel.<br>
                             mais c'est un processus itératif qui s'applique de façon global sur le terrain : pas de parallélisation, plusieurs passage nécessaire
                         </aside>
                     </section>
@@ -166,9 +168,9 @@
                         </div>
 
                         <aside class="notes">
-                            viennent ensuite les méthodes utilisant des exemples de motifs pré-calculé et combinés ensemble
-                            il s'agit ici amplifier un terrain d'entrée basse résolution en utilisant des patchs haute résolution stokés dans un dictionnaire
-                            résultat naturel mais coûteux en calcul et en mémoire.
+                            viennent ensuite les méthodes utilisant des exemples de motifs pré-calculé et combinés ensemble <br>
+                            il s'agit ici amplifier un terrain d'entrée basse résolution en utilisant des patchs haute résolution stokés dans un dictionnaire<br>
+                            ces méthodes donnes des résultats naturels, mais sont coûteuses en calcul et en mémoire.
                         </aside>
                     </section>
 
@@ -202,9 +204,9 @@
                         </div>
 
                         <aside class="notes">
-                            enfin, les méthode procédural, utilisent des bruit procéduraux pour ajouter des détails.
-                            contrairement au deux famille de méthode précédentees, ces détails sont calculé localement en parallèle
-                            sur l'image nous avons, à gauche, le ridge noise qui génère des arrête vive mais complètement déconectées du terrain et ne permettant pas l'écoulement de l'eau
+                            enfin, les méthode procédural, utilisent des bruit procéduraux pour ajouter des détails. <br>
+                            contrairement au deux famille de méthode précédentees, ces détails sont calculé localement en parallèle <br>
+                            sur l'image nous avons, à gauche, le ridge noise qui génère des arrête vive mais complètement déconectées du terrain et ne permettant pas l'écoulement de l'eau <br>
                             à droite, l'érosive noise, propose un étirement de motifs suivant le gradient du terrain, mais le résultat manque de réalisme
                         </aside>
                     </section>
@@ -243,8 +245,10 @@
                         </div>
 
                         <aside class="notes">
-                            notre objectif est donc de présenter une méthode pocédurale, dont le résutat est calculé localement en parallèle mais avec un meilleur réalisme, 
-                            Pour cela, nous visons une meilleur utilisation du gradient pour contrôler l'orientation les détail et permettre l'écoulement de l'eau
+                            notre objectif est de présenter une méthode pocédurale,  <br>
+                            dont le résutat est calculé localement en parallèle mais avec un meilleur réalisme,  <br>
+                            Pour cela, nous proposons une utilisation plus précise du gradient pour contrôler l'orientation les détail et permettre l'écoulement de l'eau<br>
+                            notre méthode permet également à l'utilisateur de définir des paramètres de contrôle
                         </aside>
                     </section>
 
@@ -305,21 +309,21 @@
 
                                     <table >
                                         <td width="30%">
-                                            <figure>
+                                            <figure Align="center">
                                                 <img src="images/bi_chan_re_crop.png">
-                                                <figcaption>(a) : champ $G_{f,\theta}(\mathbf{u})$</figcaption>
+                                                <figcaption>(a) : $G_{f,\theta}(\mathbf{u})$</figcaption>
                                             </figure>
                                         </td>
 
                                         <td width="30%">
-                                            <figure>
+                                            <figure Align="center">
                                                 <img src="images/cm_triangle_simple.png" >
-                                                <figcaption>(b) : fonction $H(\mathbf{x})$</figcaption>
+                                                <figcaption>(b) : $H(\mathbf{x})$</figcaption>
                                             </figure>
                                         </td>
 
                                         <td width="30%">
-                                            <figure>
+                                            <figure Align="center">
                                                 <img src="images/res_triangle_simple.png">
                                                 <figcaption>(c) : Phasor$(\mathbf{u})$</figcaption>
                                             </figure>
@@ -388,13 +392,14 @@
                         </table> -->
 
                         <aside class="notes">
-                            en génération de texture, le phasor noise, permet d'obtenir des vagues alongée dont on peut controller le profil
+                            en génération de texture, le phasor noise, permet d'obtenir des vagues alongée dont on peut controller le profil <br>
                             <!-- la formualtion initiale présentée en 2019 consiste à composer un champ de phase phi, par un profil de vague p -->
-                            en 2022 une reprise de la formulation a été proposée 
-                            en composant un champ gaussien complexe (en bas à gauche) par une fonction de transfert (en bas au centre)
-                            Cette fonction de transfert contient le profil p des vagues et le calcul de la phase du champ complexe.
+                            une formulation a été proposée en 2022, <br>
+                            en composant un champ gaussien complexe (en bas à gauche) <br>
+                            par une fonction de transfert (en bas au centre)<br>
+                            Cette fonction de transfert contient le profil p des vagues et le calcul de la phase du champ complexe.<br>
                             
-                            cette formulation nous permet de manipuler plus facilement le profil et le champ G indépendement 
+                            cette formulation nous permet de manipuler plus facilement le profil p et le champ G indépendement 
                             <!-- ce qui va nous être utilie pour la définition de l'apparence des raviens -->
                         </aside>
                     </section>
@@ -486,13 +491,13 @@
                         </table>
 
                         <aside class="notes">
-                            dans un premier temps nous définissons le contenue de la fonction de transfert H
-                            pour représenter des ravines d'écoulement d'eau, nous avons choisi un profil transversal triangulaire avec un fond arrondi (représenté en bleu à gauche)
-                            dans la carte H, ce profil se retrouve sur la coordonnée angulaire phi
-                            sur la représentation en 3D, nous pouvons voir le fond des ravine entouré en pointillé.
+                            dans un premier temps nous définissons le contenue de la fonction de transfert H <br>
+                            pour représenter des ravines d'écoulement d'eau, nous avons choisi un profil transversal triangulaire avec un fond arrondi (représenté en bleu à gauche) <br>
+                            dans la carte H, ce profil se retrouve sur la coordonnée angulaire phi <br>
+                            sur la représentation en 3D, nous pouvons voir le fond des ravine entouré en pointillé.<br>
 
-                            Une difficulté présentée par le phasor noise est la présence d'une singularité au centre de H due à l'arctangente et qui provoque les pic entouré en ligne continue sur al vue 3D
-                            
+                            Une difficulté présentée par le phasor noise est la présence d'une singularité au centre de H due à l'arctangente et qui provoque les pic entouré en ligne continue sur la vue 3D <br>
+                            ces pic aux intersection entre les ravines sont peu naturel. 
                         </aside>
                     </section>
 
@@ -537,10 +542,9 @@
 
 
                         <aside class="notes">
-                            ces pic aux intersection entre les ravines sont peu naturel.
-                            pour les écrasé, nous introduisons une fonction d'atténuation, représentée en orange à gauche
-                            cette atténuation se retrouve sur la coordonnée radiale de la fonction H
-                            elle permet d'écraser la singularité au centre tout en conservant le reste du profil transversal comme nous pouvons le voir sur la vue 3D
+                            pour les écrasé, nous introduisons une fonction d'atténuation, représentée en orange à gauche <br>
+                            cette atténuation se retrouve sur la coordonnée radiale de la fonction H <br>
+                            elle permet d'écraser la singularité au centre tout en conservant le reste du profil transversal comme nous pouvons le voir sur la vue 3D <br>
                             nous obtenons ainsi la fonction H complète
                         </aside>
                     </section>
@@ -593,12 +597,12 @@
                         </p> -->
 
                         <aside class="notes">
-                            Pour le contrôle local des ravines, celui-ci se fait à travers le contrôle du champ G
-                            dans un premier temps il est important de contrôler l'orientation et donc le sens des ravines.
+                            Pour le contrôle local des ravines, celui-ci se fait à travers le contrôle du champ G <br>
+                            dans un premier temps il est important de contrôler l'orientation et donc le sens des ravines. <br>
 
-                            dans notre cas, les ravines doivent être perpendicualire à la pente pour permettre l'écouement de l'eau
-                            pour cela, en partant du terrain inital (à gauche), 
-                            nous utilisons l'orientation du gradient (au centre), calculé sur le terrain stocké en mémoire (par exemple par différence finie)
+                            dans notre cas, les ravines doivent être perpendicualire à la pente pour permettre l'écouement de l'eau<br>
+                            pour cela, en partant du terrain inital (à gauche), <br>
+                            nous utilisons l'orientation du gradient (au centre), calculé sur le terrain stocké en mémoire (par exemple par différence finie)<br>
                             pour obtenir le champ d'orientation (à droite)
                         </aside>
                     </section>
@@ -637,7 +641,7 @@
                         <br>
                         <figure class="r-stretch">
                             <img src="images/custom_amplitude.png">
-                            <figcaption>Figure 20 : définition de l'amplitude</figcaption>
+                            <figcaption>Figure 19 : définition de l'amplitude</figcaption>
                         </figure>
 
                         <!-- <table width="32%" Align="left" cellspacing="0em" cellpadding="0">
@@ -668,10 +672,10 @@
                         </p> -->
 
                         <aside class="notes">
-                            la carte d'amplitude permet de contrôler les zones où les ravines vont apparaitre ou non.
-                            elle peut être définie entièrement à la main par l'utilisateur.
-                            ici, pour l'image de gauche, nous avons utilisé la distance au rivière présentes dans le terrain initial comme carte d'amplitude
-                            à droite, nous avons fait une modification manuelle de la carte précédente pour ajouter plus de ravines sur une des pentes
+                            la carte d'amplitude permet de contrôler les zones où les ravines vont apparaitre ou non.<br>
+                            elle peut être définie entièrement à la main par l'utilisateur.<br>
+                            ici, pour l'image de gauche, nous avons utilisons la distance au rivière présentes dans le terrain initial comme carte d'amplitude<br>
+                            à droite, nous faisons une modification manuelle de la carte précédente pour ajouter plus de ravines sur une des pentes
                         </aside>
                     </section>
 
@@ -694,7 +698,7 @@
                                 <td>
                                     <figure Align="center">
                                         <img src="images/terrain_lvl1.png">
-                                        <figcaption>Figure 21 : terrain initial et résultat de l'augmentation</figcaption>
+                                        <figcaption>Figure 20 : terrain initial et résultat de l'augmentation</figcaption>
                                     </figure>
                                     
                                     <!-- <small align="center"> Figure : géométrie et texture d'une scène</small> -->
@@ -710,20 +714,20 @@
                                 <li>Pentes lisses</li>
                                 <li>Lignes de crête lisses</li>
                             </ul>
-                            <figure Align="right">
+                            <figure Align="center">
                                 <img src="images/lvl2.png">
                                 <!-- <figcaption>Figure 23 : terrain initial et résultat de l'augmentation</figcaption> -->
                             </figure>
                         </div>
 
                         <aside class="notes">
-                            avec le modèle dévelopé jusque là nous augmentons le terrain initial à gauche avec des ravines générée procédurelement et permettant un bon écoulemetn de l'eau
-                            cependant, le résultat obtenu peut être améliorer pour augmenter le réalisme.
-                            en effet, les pentes des ravines ainsi que le crête sont très lisse par rapport à des ravines naturelles.
+                            avec le modèle dévelopé jusque là nous augmentons le terrain initial à gauche avec des ravines générée procédurelement et permettant un bon écoulemetn de l'eau<br>
+                            cependant, le résultat obtenu peut être améliorer pour augmenter le réalisme.<br>
+                            en effet, les pentes des ravines ainsi que le crête sont très lisse par rapport à des ravines naturelles.<br>
 
-                            Pour améliorer ce résultat, nous allons, dans un premier temps, appliquer le modèle précédent en cascade de façon a créer des rigoles sur les pentes des ravines
-                            comme dans l'image à droite.
-                            Ces rigoles ont une fréquence 3 fois plus élevée que les ravines et leur amplitude est définie selon la même carte de façon à ce qu'elles apparaissent aux mêmes endrois
+                            Pour améliorer ce résultat, nous allons, dans un premier temps, appliquer le modèle précédent en cascade de façon a créer des rigoles sur les pentes des ravines<br>
+                            comme dans l'image à droite.<br>
+                            Ces rigoles ont une fréquence 3 fois plus élevée que les ravines et leur amplitude est définie selon la même carte de façon à ce qu'elles apparaissent aux mêmes endrois<br>
                             la principale difficulté réside dans l'orientation des rigoles.
 
                         </aside>
@@ -786,7 +790,7 @@
                                     
                                 </td>
 
-                                <td width="12%">
+                                <td width="15%">
                                     <br>
                                     <figure>
                                         <img src="images/grad_terrain_lisse.png">
@@ -798,12 +802,12 @@
                                     </figure>
                                 </td>
                         
-                                <td Align="center" width="32%">
+                                <td Align="center" width="40%">
                                     <br>
                                     <figure>
                                         <img src="images/champ_orientation_lvl2.png" width="75%">
                                         <img src="images/colormap_test.png" width="11%">
-                                        <figcaption >Figure 22 : champ d'orientation $\theta^{(2)}$</figcaption>
+                                        <figcaption >Figure 21 : champ d'orientation $\theta^{(2)}$</figcaption>
                                     </figure>
                                     
                                 </td>
@@ -854,16 +858,16 @@
 
 
                         <aside class="notes">
-                            l'orientation des rigole doit être faite en tenant compte du terrain initial et des ravines principale déjà ajoutées.
-                            le champ d'orientation (à droite) dépend donc de la somme des gradient du terrain et des ravines.
+                            l'orientation des rigole doit être faite en tenant compte du terrain initial et des ravines principale déjà ajoutées.<br>
+                            le champ d'orientation (à droite) dépend donc de la somme des gradient du terrain et des ravines.<br>
 
-                            le gradient du terrain à déjà été calculé pour orienté les ravines, par différence finie par exemple.
-                            pour obtenir le gradient des ravines, nous devons dérivée la composition H rond G 
-                            considérons le champ vectoriel G comme une somme pondérée de noyaux de gabor k
-                            la matrice jacobienne J de ce champ est donc la somme des dérivée des noyaux.
+                            le gradient du terrain à déjà été calculé pour orienté les ravines, par différence finie par exemple.<br>
+                            pour obtenir le gradient des ravines, nous devons dérivée la composition H rond G <br>
+                            considérons le champ vectoriel G comme une somme pondérée de noyaux de gabor k<br>
+                            la matrice jacobienne J de ce champ est donc la somme des dérivée des noyaux.<br>
 
-                            De cette façon, nous obtenons la dérivation du phasor noise par le produit jacobienne fois gradient H évalué en G
-                            la fonction H peut être dérivée par différence finie.
+                            De cette façon, nous obtenons la dérivation du phasor noise par le produit jacobienne fois gradient H évalué en G<br>
+                            la fonction H peut être dérivée par différence finie.<br>
                             ce qui nous permet d'avoir le gradient de nos ravine à la volée.
                         </aside>
                     </section>
@@ -912,7 +916,7 @@
 
                         <figure class="r-stretch">
                             <img src="images/terrain_lvl1_lvl2_fbm.png" width="100%">
-                            <figcaption>Figure 23 : terrain initial, niveau 1, niveau 2 et ajout de bruit sur les crêtes</figcaption>
+                            <figcaption>Figure 22 : terrain initial, niveau 1, niveau 2 et ajout de bruit sur les crêtes</figcaption>
                         </figure>
 
                         <!-- <p>
@@ -921,10 +925,10 @@
 
 
                         <aside class="notes">
-                            Finalement, en partant d'un terrain initial (à gauche)
-                            nous ajoutons un premier niveau de ravines
-                            puis un second niveau de rigole en cascade à l'intérieur de ravine.
-                            enfin, pour casser le côté lisse des ligne de crête, nous ajoutons un bruit de type fbm au sommet de ravines
+                            Finalement, en partant d'un terrain initial (à gauche)<br>
+                            nous ajoutons un premier niveau de ravines<br>
+                            puis un second niveau de rigole en cascade à l'intérieur de ravine.<br>
+                            enfin, pour casser le côté lisse des ligne de crête, nous ajoutons un bruit de type fbm au sommet de ravines<br>
                             pour obtenir le résultat à droite.
                         </aside>
                     </section>
@@ -985,19 +989,19 @@
                             <td width="30%">
                                 <figure>
                                     <img src="images/terrain_reel_init.png">
-                                    <figcaption>Figure 24 : terrain initial </figcaption>
+                                    <figcaption>Figure 23 : terrain initial </figcaption>
                                 </figure>
                             </td>
                             <td width="30%">
                                 <figure>
                                     <img src="images/terrain_reel_smooth.png">
-                                    <figcaption>Figure 25 : version lissée </figcaption>
+                                    <figcaption>Figure 24 : version lissée </figcaption>
                                 </figure>
                             </td>
                             <td width="30%">
                                 <figure>
                                     <img src="images/terrain_reel_nous.png">
-                                    <figcaption>Figure 26 : notre résultat </figcaption>
+                                    <figcaption>Figure 25 : notre résultat </figcaption>
                                 </figure>
                             </td>
 
@@ -1005,12 +1009,12 @@
                         
 
                         <aside class="notes">
-                            Pour valider nos résultat nous 
-                            pour cela, nous considérons un terrain initial (à gauche) 
-                            que nous avons lissé pour en retirer les détails haute fréquence (au centre)
-                            la ré-augmentation de ce terrain par notre méthode (à droite) permet de retrouver des détails cohérent avec le terrain
+                            Pour valider nos résultat nous les comparons à des détails réel présent sur un terrain <br>
+                            pour cela, nous considérons un terrain initial (à gauche) <br>
+                            que nous lissons pour en retirer les détails haute fréquence (au centre)<br>
+                            la ré-augmentation de ce terrain par notre méthode (à droite) permet de retrouver des détails cohérent avec le terrain<br>
 
-                            Des différence sont évidemnent visible, comme celles entourée en bleu et en rouge (nous ne chercons pas à reproduire les détails à l'identique)
+                            Des différence sont évidemnent visible, comme celles entourée en bleu et en rouge (nous ne chercons pas à reproduire les détails à l'identique)<br>
                             mais le résultat obtenue est dans le même esprit et assez proche du terrain initial
                         </aside>
                     </section>
@@ -1028,19 +1032,19 @@
                             <td width="30%">
                                 <figure>
                                     <img src="images/comparaison_reel_fbm.png">
-                                    <figcaption>Figure 27 : bruit fbm </figcaption>
+                                    <figcaption>Figure 26 : bruit fbm </figcaption>
                                 </figure>
                             </td>
                             <td width="30%">
                                 <figure>
                                     <img src="images/comparaison_reel_nous.png">
-                                    <figcaption>Figure 28 : notre méthode </figcaption>
+                                    <figcaption>Figure 27 : notre méthode </figcaption>
                                 </figure>
                             </td>
                             <td width="30%">
                                 <figure>
                                     <img src="images/comparaison_reel_simu.png">
-                                    <figcaption>Figure 29 : simulation d'érosion </figcaption>
+                                    <figcaption>Figure 28 : simulation d'érosion </figcaption>
                                 </figure>
                             </td>
 
@@ -1048,18 +1052,18 @@
 
                         <figure Align="center">
                             <img src="images/comparaison_reel_init.png" width="20%">
-                            <figcaption>Figure 30 : terrain initial</figcaption>
+                            <figcaption>Figure 29 : terrain initial</figcaption>
                         </figure>
 
 
 
                         <aside class="notes">
-                            une validation un peu moins objective consiste à mesurer la quantité de matière à enlever pour permettre le bon écoulement de l'eau
-                            à partir du terrain intial (en bas) nous réalisons 3 version détaillées
-                            une par un fbm en ridge noise(à gauche) une par simulation d'érosion (à droite) et une avec notre méthode.
-                            le résultat des mesure nous donne que la simulation est la méthode nécessitant le moins d'enlèvement de matière (2)
-                            le bruit fbm est la méthode necessitant d'enlever le plus de matière (7.4)
-                            pour notre méthode, la quantité de matière à enlever est une valeur intermédiaire plus proche de celle de la simulaiton que de celle du bruit fbm. (2.1)
+                            une validation un peu moins objective consiste à mesurer la quantité de matière à enlever pour permettre le bon écoulement de l'eau<br>
+                            à partir du terrain intial (en bas) nous réalisons 3 version détaillées<br>
+                            une par un fbm en ridge noise(à gauche) une par simulation d'érosion (à droite) et une avec notre méthode.<br>
+                            le résultat des mesure nous donne que la simulation est la méthode nécessitant le moins d'enlèvement de matière (2)<br>
+                            le bruit fbm est la méthode necessitant d'enlever le plus de matière (7.4)<br>
+                            pour notre méthode, la quantité de matière à enlever est une valeur intermédiaire plus proche de celle de la simulaiton que de celle du bruit fbm. (2.1)<br>
                         </aside>
                     </section>
 
@@ -1126,12 +1130,12 @@
                     <!-- <section> -->
                     <h2>Conclusion</h2>
 
-                    <table width="60%" Align="left" cellspacing="0" cellpadding="0">
+                    <table width="55%" Align="left" cellspacing="0" cellpadding="0">
                         <!-- <tr> -->
                             <td>
                                 <figure Align="center">
                                     <img src="images/terrain_res.png">
-                                    <figcaption>Figure 31 : terrain initial et résultat final</figcaption>
+                                    <figcaption>Figure 30 : terrain initial et résultat final</figcaption>
                                 </figure>
                                 
                                 <!-- <small align="center"> Figure : géométrie et texture d'une scène</small> -->
@@ -1151,7 +1155,7 @@
                         <!-- <br> -->
                         <p>Limitations et suites</p>
                         <ul>
-                            <li>Terrain comme un champ de hauteur</li>
+                            <li>Modélisation par champ de hauteur</li>
                             <!-- <li>Type de terrains</li> -->
                             <li>Filtrage en temps réel</li>
                             <li>Potentiel des cartes de contrôle</li>
@@ -1160,20 +1164,20 @@
                     <!-- </section> -->
 
                     <aside class="notes">
-                        en conclusion, nous avons définit une méthode d'augmentation de terrain sous la forme d'un processus local
-                        bien adapté au terrain grâce au contrôle par le gradient
-                        et permettant également un contrôle artistique à travers les autre carte de contrôle tel que l'amplitude
+                        en conclusion, nous avons définit une méthode d'augmentation de terrain sous la forme d'un processus local<br>
+                        bien adapté au terrain grâce au contrôle par le gradient<br>
+                        et permettant également un contrôle artistique à travers les autre carte de contrôle tel que l'amplitude<br>
 
-                        plusieurs suites sont envisageable
-                        une limitation intrinceque au modèle est la définition des terrain par un champ de hauteur, en effet cette représentation ne permet pas de couvrir tous le spectre de terrian possible
-                        (pas de caverne ou de surplomb par exemple)
+                        plusieurs suites sont envisageable<br>
+                        une limitation intrinceque au modèle est la définition des terrain par un champ de hauteur, en effet cette représentation ne permet pas de couvrir tous le spectre de terrian possible<br>
+                        (pas de caverne ou de surplomb par exemple)<br>
 
-                        ensuite, nous nous sommes intéressé à la génération des détails en temps réel, 
-                        il serait intéressant de travailler sur leur filtrage en temps réel.
-                        dans le cadre des textures de couleur, le fitlrage du phasor est faisable en temps réel mais l'utilisation pour de la géométrie necessite de prendr en compt les effet de maskage et approte une difficulté supplémentaire
+                        ensuite, nous nous sommes intéressé à la génération des détails en temps réel, <br>
+                        il serait intéressant de travailler sur leur filtrage en temps réel.<br>
+                        dans le cadre des textures de couleur, le fitlrage du phasor est faisable en temps réel mais l'utilisation pour de la géométrie necessite de prendr en compt les effet de maskage et approte une difficulté supplémentaire<br>
 
-                        enfin, il serait intéressant de tester tous le potentiel des cartes de contrôle.
-                        la carte de contrôle de la fréquence par exemple, est constante dans nos exemple mais peut être définie comme variable, à la main ou en fonction du terrain initial
+                        enfin, il serait intéressant de tester tous le potentiel des cartes de contrôle.<br>
+                        la carte de contrôle de la fréquence par exemple, est constante dans nos exemple mais peut être définie comme variable, à la main ou en fonction du terrain initial<br>
                     </aside>
                 </section>
 
@@ -1296,8 +1300,8 @@
 			});
             Reveal.slide( 0 );
             // Reveal.addEventListener( 'ready', function( event ) {
-            //     Reveal.slide( 4, 6 );
-            //     Reveal.toggleOverview(true);
+            //     Reveal.slide( 6, 0 );
+            //     // Reveal.toggleOverview(true);
             // });
             
 		</script>
