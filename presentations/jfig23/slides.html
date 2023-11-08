@@ -34,8 +34,8 @@
                     <aside class="notes">
                         Bonjour, <br>
                         Je suis Charline Grenier, je suis en thèse au laboratoire ICube à Strasbourg.<br>
-                        je vais vous présenter notre travail sur de l'augmentation de terrain par de motif procéduraux contrôlé.<br>
-                        Ce travail est le fruit d'une collaboration entre les laboratoire de strasbourg et de lyon suite à une mobilité inter-labo financée par le GdR IGRV
+                        je vais vous présenter notre travail sur de l'augmentation de terrain par des motifs procéduraux contrôlés.<br>
+                        Ce travail est le fruit d'une collaboration entre les laboratoires de strasbourg et de lyon suite à une mobilité inter-labo financée par le GdR IGRV l'an dernier
                     </aside>
                 </section>
 
@@ -50,10 +50,10 @@
                     </figure>
 
                     <aside class="notes">
-                        les terrains jouent un rôle important dans le réalisme des monde virtuel.
+                        les terrains jouent un rôle important dans le réalisme des mondes virtuels.
                         c'est en particulier visible dans les simulations, les films ou les jeux vidéo.<br>
-                        dans ces terrain, ce sont aussi bien les grand structure que les petit détails qui font le réalisme<br>
-                        comme ici avec le flight simulator de microsoft
+                        comme ici avec le flight simulator de microsoft<br>
+                        dans ces terrains, ce sont aussi bien les grandes structures que les petits détails qui font le réalisme
                     </aside>
                 </section>
 
@@ -68,7 +68,7 @@
                     <aside class="notes">
                         pour cette présenation je vais dans un premier temps vous faire un bref état de l'art des méthodes d'augmentation de terrain<br>
                         puis je présenterais notre méthode,<br>
-                        et des comparaison avec des méthodes existante
+                        et enfin des comparaisons avec des méthodes existante
                     </aside>
                 </section>
 
@@ -132,7 +132,7 @@
                         <aside class="notes">
                             une méthode très utilisée est la simulation de phénomène physique, tel que l'érosion hydrolique.<br>
                             cette famille de méthode permet de résultat très naturel.<br>
-                            mais c'est un processus itératif qui s'applique de façon global sur le terrain : pas de parallélisation, plusieurs passage nécessaire
+                            mais c'est un processus itératif qui s'applique de façon global sur le terrain il est donc coûteux en temps de calcul et ne peut pas être utiilsé en temps réel
                         </aside>
                     </section>
 
@@ -168,7 +168,7 @@
                         </div>
 
                         <aside class="notes">
-                            viennent ensuite les méthodes utilisant des exemples de motifs pré-calculé et combinés ensemble <br>
+                            viennent ensuite les méthodes utilisant des exemples de motifs pré-calculés et combinés ensemble <br>
                             il s'agit ici amplifier un terrain d'entrée basse résolution en utilisant des patchs haute résolution stokés dans un dictionnaire<br>
                             ces méthodes donnes des résultats naturels, mais sont coûteuses en calcul et en mémoire.
                         </aside>
@@ -204,10 +204,10 @@
                         </div>
 
                         <aside class="notes">
-                            enfin, les méthode procédural, utilisent des bruit procéduraux pour ajouter des détails. <br>
-                            contrairement au deux famille de méthode précédentees, ces détails sont calculé localement en parallèle <br>
-                            sur l'image nous avons, à gauche, le ridge noise qui génère des arrête vive mais complètement déconectées du terrain et ne permettant pas l'écoulement de l'eau <br>
-                            à droite, l'érosive noise, propose un étirement de motifs suivant le gradient du terrain, mais le résultat manque de réalisme
+                            enfin, les méthodes procédural, utilisent des bruits procéduraux pour ajouter des détails. <br>
+                            contrairement au deux familles de méthode précédentees, ces détails sont calculés localement en parallèle <br>
+                            sur l'image nous avons, à gauche, le ridge noise qui génère des arrêtes vives mais complètement déconectées du terrain et ne permettant pas l'écoulement de l'eau <br>
+                            à droite, l'érosive noise, propose un étirement du motifs suivant le gradient du terrain, mais le résultat manque de réalisme
                         </aside>
                     </section>
 
@@ -245,10 +245,11 @@
                         </div>
 
                         <aside class="notes">
-                            notre objectif est de présenter une méthode pocédurale,  <br>
-                            dont le résutat est calculé localement en parallèle mais avec un meilleur réalisme,  <br>
-                            Pour cela, nous proposons une utilisation plus précise du gradient pour contrôler l'orientation les détail et permettre l'écoulement de l'eau<br>
-                            notre méthode permet également à l'utilisateur de définir des paramètres de contrôle
+                            notre objectif est de présenter une méthode d'augmentationde terrain ajoutant de détails généré procédurelement,  <br>
+			    En partant d'un terrain lisse (à gauche sur le schéma), les détails sont ajouté par addition d'un champ de hauteur (en bas) <br>
+				ce champ est contrôlé par des cartes de contrôles pouvant être définie par l'utilisateur <br>
+				en particulier, pour un meilleur réalisme, le gradient du terrain initial est utilisé pour définir l'orientation au lieu de l'étirement du motifs.<br>
+				cela nous permet de générer des ravines d'érosion cohérente avec l'écoulement de l'eau.
                         </aside>
                     </section>
 
@@ -393,13 +394,15 @@
 
                         <aside class="notes">
                             en génération de texture, le phasor noise, permet d'obtenir des vagues alongée dont on peut controller le profil <br>
+				nous utilisons ce modèle pour générer le champ additif des ravines
                             <!-- la formualtion initiale présentée en 2019 consiste à composer un champ de phase phi, par un profil de vague p -->
                             une formulation a été proposée en 2022, <br>
                             en composant un champ gaussien complexe (en bas à gauche) <br>
                             par une fonction de transfert (en bas au centre)<br>
-                            Cette fonction de transfert contient le profil p des vagues et le calcul de la phase du champ complexe.<br>
+                            cette formulation nous permet de manipuler plus facilement le profil p et le champ G indépendement <br>
+				le champ gaussien est contrôlé en fréquence et en orientation et permet de contrôler l'espacement et la direction des ravines.<br>
+				le profil des ravines est contrôlé à travers la fonction H.
                             
-                            cette formulation nous permet de manipuler plus facilement le profil p et le champ G indépendement 
                             <!-- ce qui va nous être utilie pour la définition de l'apparence des raviens -->
                         </aside>
                     </section>
@@ -542,7 +545,7 @@
 
 
                         <aside class="notes">
-                            pour les écrasé, nous introduisons une fonction d'atténuation, représentée en orange à gauche <br>
+                            pour les écraser, nous introduisons une fonction d'atténuation, représentée en orange à gauche <br>
                             cette atténuation se retrouve sur la coordonnée radiale de la fonction H <br>
                             elle permet d'écraser la singularité au centre tout en conservant le reste du profil transversal comme nous pouvons le voir sur la vue 3D <br>
                             nous obtenons ainsi la fonction H complète
@@ -598,7 +601,7 @@
 
                         <aside class="notes">
                             Pour le contrôle local des ravines, celui-ci se fait à travers le contrôle du champ G <br>
-                            dans un premier temps il est important de contrôler l'orientation et donc le sens des ravines. <br>
+                            dans un premier temps il est important de contrôler l'orientation et donc la direction des ravines. <br>
 
                             dans notre cas, les ravines doivent être perpendicualire à la pente pour permettre l'écouement de l'eau<br>
                             pour cela, en partant du terrain inital (à gauche), <br>
@@ -674,7 +677,7 @@
                         <aside class="notes">
                             la carte d'amplitude permet de contrôler les zones où les ravines vont apparaitre ou non.<br>
                             elle peut être définie entièrement à la main par l'utilisateur.<br>
-                            ici, pour l'image de gauche, nous avons utilisons la distance au rivière présentes dans le terrain initial comme carte d'amplitude<br>
+                            ici, pour l'image de gauche, nous utilisons la distance aux rivières présentes dans le terrain initial comme carte d'amplitude<br>
                             à droite, nous faisons une modification manuelle de la carte précédente pour ajouter plus de ravines sur une des pentes
                         </aside>
                     </section>
@@ -721,9 +724,9 @@
                         </div>
 
                         <aside class="notes">
-                            avec le modèle dévelopé jusque là nous augmentons le terrain initial à gauche avec des ravines générée procédurelement et permettant un bon écoulemetn de l'eau<br>
+                            avec le modèle dévelopé jusque là nous augmentons le terrain initial à gauche avec des ravines générées procédurelement et permettant un bon écoulemetn de l'eau<br>
                             cependant, le résultat obtenu peut être améliorer pour augmenter le réalisme.<br>
-                            en effet, les pentes des ravines ainsi que le crête sont très lisse par rapport à des ravines naturelles.<br>
+                            en effet, les pentes des ravines ainsi que leur crêtes sont très lisse par rapport à des ravines naturelles.<br>
 
                             Pour améliorer ce résultat, nous allons, dans un premier temps, appliquer le modèle précédent en cascade de façon a créer des rigoles sur les pentes des ravines<br>
                             comme dans l'image à droite.<br>
@@ -859,15 +862,15 @@
 
                         <aside class="notes">
                             l'orientation des rigole doit être faite en tenant compte du terrain initial et des ravines principale déjà ajoutées.<br>
-                            le champ d'orientation (à droite) dépend donc de la somme des gradient du terrain et des ravines.<br>
+                            le champ d'orientation (à droite) dépend donc de la somme des gradients du terrain et des ravines.<br>
 
-                            le gradient du terrain à déjà été calculé pour orienté les ravines, par différence finie par exemple.<br>
-                            pour obtenir le gradient des ravines, nous devons dérivée la composition H rond G <br>
+                            le gradient du terrain à déjà été calculé pour orienté les ravines.<br>
+                            pour obtenir le gradient des ravines, nous devons dériver la composition H rond G <br>
                             considérons le champ vectoriel G comme une somme pondérée de noyaux de gabor k<br>
                             la matrice jacobienne J de ce champ est donc la somme des dérivée des noyaux.<br>
 
-                            De cette façon, nous obtenons la dérivation du phasor noise par le produit jacobienne fois gradient H évalué en G<br>
-                            la fonction H peut être dérivée par différence finie.<br>
+                            De cette façon, nous obtenons la dérivation du phasor noise par le produit de la jacobienne par le gradient de H évalué en G<br>
+                            la fonction H est entièrement connue donc sont gradient peut être pré-calculé.<br>
                             ce qui nous permet d'avoir le gradient de nos ravine à la volée.
                         </aside>
                     </section>
@@ -927,8 +930,8 @@
                         <aside class="notes">
                             Finalement, en partant d'un terrain initial (à gauche)<br>
                             nous ajoutons un premier niveau de ravines<br>
-                            puis un second niveau de rigole en cascade à l'intérieur de ravine.<br>
-                            enfin, pour casser le côté lisse des ligne de crête, nous ajoutons un bruit de type fbm au sommet de ravines<br>
+                            puis un second niveau de rigole en cascade à l'intérieur des ravines.<br>
+                            enfin, pour casser le côté lisse des ligne de crête, nous ajoutons un bruit de type fbm au sommet des ravines<br>
                             pour obtenir le résultat à droite.
                         </aside>
                     </section>
@@ -1009,12 +1012,12 @@
                         
 
                         <aside class="notes">
-                            Pour valider nos résultat nous les comparons à des détails réel présent sur un terrain <br>
+                            Pour valider nos résultats nous les comparons à des détails réel présent sur un terrain <br>
                             pour cela, nous considérons un terrain initial (à gauche) <br>
-                            que nous lissons pour en retirer les détails haute fréquence (au centre)<br>
+                            que nous lissons pour en retirer les détails haute fréquence et obtenir le terrain au centre<br>
                             la ré-augmentation de ce terrain par notre méthode (à droite) permet de retrouver des détails cohérent avec le terrain<br>
 
-                            Des différence sont évidemnent visible, comme celles entourée en bleu et en rouge (nous ne chercons pas à reproduire les détails à l'identique)<br>
+                            Des différences sont évidemnent visible, comme celles entourée en bleu et en rouge (nous ne chercons pas à reproduire les détails à l'identique)<br>
                             mais le résultat obtenue est dans le même esprit et assez proche du terrain initial
                         </aside>
                     </section>
@@ -1058,12 +1061,12 @@
 
 
                         <aside class="notes">
-                            une validation un peu moins objective consiste à mesurer la quantité de matière à enlever pour permettre le bon écoulement de l'eau<br>
-                            à partir du terrain intial (en bas) nous réalisons 3 version détaillées<br>
+                            une validation plus quantitative peut consister à mesurer la quantité de matière à enlever pour permettre le bon écoulement de l'eau<br>
+                            à partir du terrain intial (en bas) nous réalisons 3 versions détaillées<br>
                             une par un fbm en ridge noise(à gauche) une par simulation d'érosion (à droite) et une avec notre méthode.<br>
-                            le résultat des mesure nous donne que la simulation est la méthode nécessitant le moins d'enlèvement de matière (2)<br>
-                            le bruit fbm est la méthode necessitant d'enlever le plus de matière (7.4)<br>
-                            pour notre méthode, la quantité de matière à enlever est une valeur intermédiaire plus proche de celle de la simulaiton que de celle du bruit fbm. (2.1)<br>
+                            le résultat des mesures nous donne que la simulation est la méthode nécessitant le moins d'enlèvement de matière (elle nous donne une valeur de référence de 2)<br>
+                            le bruit fbm est la méthode necessitant d'enlever le plus de matière (avec une valeur de 7.4)<br>
+                            pour notre méthode, la quantité de matière à enlever est une valeur intermédiaire plus proche de celle de la simulaiton que de celle du bruit fbm. (avec une valeur de 2.1)<br>
                         </aside>
                     </section>
 
@@ -1166,7 +1169,7 @@
                     <aside class="notes">
                         en conclusion, nous avons définit une méthode d'augmentation de terrain sous la forme d'un processus local<br>
                         bien adapté au terrain grâce au contrôle par le gradient<br>
-                        et permettant également un contrôle artistique à travers les autre carte de contrôle tel que l'amplitude<br>
+                        et permettant également un contrôle artistique à travers les autres carte de contrôle tel que l'amplitude<br>
 
                         plusieurs suites sont envisageable<br>
                         une limitation intrinceque au modèle est la définition des terrain par un champ de hauteur, en effet cette représentation ne permet pas de couvrir tous le spectre de terrian possible<br>
@@ -1174,7 +1177,7 @@
 
                         ensuite, nous nous sommes intéressé à la génération des détails en temps réel, <br>
                         il serait intéressant de travailler sur leur filtrage en temps réel.<br>
-                        dans le cadre des textures de couleur, le fitlrage du phasor est faisable en temps réel mais l'utilisation pour de la géométrie necessite de prendr en compt les effet de maskage et approte une difficulté supplémentaire<br>
+                        dans le cas des textures de couleur, le fitlrage du phasor est faisable en temps réel mais l'utilisation pour de la géométrie necessite de prendre en compte les effets de maskage et approte une difficulté supplémentaire<br>
 
                         enfin, il serait intéressant de tester tous le potentiel des cartes de contrôle.<br>
                         la carte de contrôle de la fréquence par exemple, est constante dans nos exemple mais peut être définie comme variable, à la main ou en fonction du terrain initial<br>
