@@ -244,6 +244,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal table {
   margin: auto;
+  text-align: center;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -254,7 +255,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal table th,
 .reveal table td {
-  text-align: left;
+  text-align: center;
   padding: 0.2em 0.5em 0.2em 0.5em;
   border-bottom: 1px solid;
 }
@@ -301,7 +302,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 
 .reveal figcaption {
-  font: italic small-caps 0.6em serif;
+  font: italic small-caps var(--r-main-font-size) serif;
   /* font-size: 0.6em; */
   margin-top: -24px;
   margin-left: 0px;
@@ -311,7 +312,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 }
 
 .reveal caption {
-  font: italic small-caps 0.6em serif;
+  font: italic small-caps var(--r-main-font-size) serif;
   /* font-size: 0.6em; */
   /* margin-top: -24px; */
   margin-left: 0px;

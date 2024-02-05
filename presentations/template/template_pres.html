@@ -26,6 +26,7 @@
                     <p>logo</p>
                 </section>
 
+
                 <!-- Table des matières -->
                 <section>
                     <h2>Table des matières</h2>
@@ -33,25 +34,139 @@
                 </section>
 
 
-				<section data-name="section 1">
-					<h1>Slide</h1>
-                    <h2>titre h2</h2>
-                    <h3>titre h3</h3>
-                    <h4>titre h4</h4>
-                    <h5>titre h5</h5>
-                    <p>paragraphe</p>
 
-					<aside class="notes">
-						notes
-					</aside>
+
+                <!-- Section 1 -->
+				<section data-name="section 1">
+                    <section class="center">
+                        <h2>titre</h2>
+                        <p>paragraphe</p>
+
+                        <aside class="notes">
+                            notes
+                        </aside>
+                    </section>
+
+
+                    <section class="center">
+                        <h1>tailles titres</h1>
+                        <h2>titre h2</h2>
+                        <h3>titre h3</h3>
+                        <h4>titre h4</h4>
+                        <h5>titre h5</h5>
+                        <p>paragraphe</p>
+
+                        <aside class="notes">
+                            notes
+                        </aside>
+                    </section>
+
+
+                    <section class="center">
+                        <h2>1 image plein écran</h2>
+                        <img class="r-stretch" src="images/placeholder.png">
+                        <p><figcaption>Figure 1 : Image</figcaption></p>
+
+                        <aside class="notes">
+                            notes
+                        </aside>
+                    </section>	
+                    
+                    
+                    <section class="center">
+                        <h2>2 images</h2>
+                        
+                        <table class="r-stretch">
+                            <tr>
+                                <td>
+                                    <img src="images/placeholder.png">
+                                    <p><figcaption>Figure 1 : Image</figcaption></p>
+                                </td>
+                                <td>
+                                    <img src="images/placeholder.png">
+                                    <p><figcaption>Figure 1 : Image</figcaption></p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <aside class="notes">
+                            notes
+                        </aside>
+                    </section>	
+
+
+                    <section class="center">
+                        <h2>1 image + texte</h2>
+                        
+                        <table class="r-stretch">
+                            <tr>
+                                <td>
+                                    <img src="images/placeholder.png">
+                                    <!-- <p><figcaption>Figure 1 : Image</figcaption></p> -->
+                                </td>
+                                <td>
+                                    <div>
+                                        <br>
+                                        <p>Objectifs</p>
+                                        <br>
+                                        <ul>
+                                            <li>Processus local</li>
+                                            <li>Détails adaptés au terrain</li>
+                                            <li>Résultat plus naturel</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <aside class="notes">
+                            notes
+                        </aside>
+                    </section>	
+
+
+                    <section class="center">
+                        <h2>texte + 1 image</h2>
+                        
+                        <table class="r-stretch">
+                            <tr>
+                                <td>
+                                    <div>
+                                        <br>
+                                        <p>Objectifs</p>
+                                        <br>
+                                        <ul>
+                                            <li>Processus local</li>
+                                            <li>Détails adaptés au terrain</li>
+                                            <li>Résultat plus naturel</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td>
+                                    <img src="images/placeholder.png">
+                                    <!-- <p><figcaption>Figure 1 : Image</figcaption></p> -->
+                                </td>
+                            </tr>
+                        </table>
+
+                        <aside class="notes">
+                            notes
+                        </aside>
+                    </section>	
+
 				</section>
 
 
+                <!-- Section 2 -->
                 <section  data-name="section 2">
                     <section data-name="subsection 2.1">
                         <h1>Slide</h1>
-                        <p>
-                            slide 2 1
+                        <p> équation à part : 
+                            $$Phasor(\mathbf{u}) = H \circ G_{f,\theta}(\mathbf{u})$$
+                        <!-- </p>
+                        <p> -->
+                            <br>
+                            équation dans du texte : $G_{f,\theta}(\mathbf{u})$
                         </p>
 
                         <aside class="notes">
@@ -83,6 +198,7 @@
                 </section>
 
 
+                <!-- Section 3 -->
                 <section  data-name="section 3">
                     <section data-name="subsection 3.1">
                         <h1>Slide</h1>
@@ -125,18 +241,36 @@
 		<script src="../revealjs/plugin/markdown/markdown.js"></script>
 		<script src="../revealjs/plugin/highlight/highlight.js"></script>
         <script src="../revealjs/plugin/simplemenu/simplemenu.js"></script>
+        <script src="../revealjs/plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
-				hash: true,
+				hash: true, // Add the current slide number to the URL hash so that reloading the page/copying the URL will return you to the same slide
                 transition:'none',
-                slideNumber: 'c/t',
+                navigationMode:"linear",
+                slideNumber: 'c/t', // Display the page number of the current slide
+                progress: true, // Display a presentation progress bar
+                margin: 0.12, // Factor of the display size that should remain empty around the content
+
+                width: 1920,
+                height: 1080,
+                
+                katex: {
+                    version: 'latest',
+                    delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                },
 
                 simplemenu: {
                         flat: true,
-                        scale: 0.6,
+                        scale: 0.4,
                         barhtml: {
                             header: "<div class='menubar'>\
                                         <ul class='menu'></ul>\
@@ -153,9 +287,13 @@
                     },
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, Simplemenu ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, Simplemenu, RevealMath.KaTeX ]
 			});
 			Reveal.slide(0);
+            // Reveal.addEventListener( 'ready', function( event ) {
+            //     Reveal.slide( 6, 0 );
+            //     // Reveal.toggleOverview(true);
+            // });
 		</script>
 	</body>
 </html>
