@@ -174,28 +174,41 @@
                         </aside>
                     </section>
 
-                    <section data-name="subsection 2.2">
-                        <h1>Slide</h1>
-                        <p>
-                            slide 2 2
-                        </p>
+
+                    <section data-background-iframe="https://chgrenier.github.io/" data-background-interactive data-preload>
+                        <h2>Iframe background</h2>
 
                         <aside class="notes">
                             notes
                         </aside>
                     </section>
 
-                    <section data-name="subsection 2.3">
-                        <h1>Slide</h1>
-                        <p>
-                            slide 2 3
-                        </p>
+
+                    <section>
+                        <h2>Iframe</h2>
+                        <iframe data-src="https://hakim.se" data-preload></iframe>
 
                         <aside class="notes">
                             notes
                         </aside>
                     </section>
+
+
+                    <section>
+                        <h2>webGL frame</h2>
+
+                        <iframe class="r-stretch" data-src="applications/index.html" data-preload></iframe>
+
+
+                        <aside class="notes">
+                            notes
+                        </aside>
+                    </section>
+
+
                 </section>
+
+
 
 
                 <!-- Section 3 -->
@@ -242,6 +255,7 @@
 		<script src="../revealjs/plugin/highlight/highlight.js"></script>
         <script src="../revealjs/plugin/simplemenu/simplemenu.js"></script>
         <script src="../revealjs/plugin/math/math.js"></script>
+
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -289,11 +303,16 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, Simplemenu, RevealMath.KaTeX ]
 			});
-			Reveal.slide(0);
-            // Reveal.addEventListener( 'ready', function( event ) {
-            //     Reveal.slide( 6, 0 );
-            //     // Reveal.toggleOverview(true);
-            // });
+
 		</script>
+
+        <script>
+            Reveal.addEventListener( 'ready', function( event ) {
+                Reveal.slide(0);
+                // Reveal.toggleOverview(true);
+            });
+        </script>
+
+        
 	</body>
 </html>
