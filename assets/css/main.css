@@ -233,6 +233,7 @@ hr {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+  margin-bottom: 2em;
   align-items: stretch; }
   .row > * {
     box-sizing: border-box; }
