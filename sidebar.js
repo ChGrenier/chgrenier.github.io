@@ -23,7 +23,7 @@ document.write('\
                                     <h2>Contact</h2>\
                                 </header>\
                                 <ul class="contact">\
-                                    <li class="icon solid fa-envelope"><a href="#">charline.grenier@unistra.fr</a></li>\
+                                    <li class="icon solid fa-envelope"><a href="#">chgrenier.research@gmail.com</a></li>\
                                     <li class="icon brands fa-linkedin"><a href="https://linkedin.com/in/charline-grenier-694a31103">Charline Grenier</a></li>\
                                     <!--  <li class="icon brands fa-jedi-order"><a href="https://www.shadertoy.com/user/ChGrenier">Shadertoy</a></li>-->\
                                 </ul>\
